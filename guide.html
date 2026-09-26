@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What you're looking at</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fbf8f3;--card:#fffdfa;--ink:#2c2724;--soft:#7c736a;--gold:#b08d57;
+--goldsoft:#e5d7bf;--line:#eae2d6;--rose:#c98b7a}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--ink);
+ font:15px/1.65 Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 90px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;letter-spacing:.01em}
+a{color:inherit}
+.top{padding:22px 0 8px}
+.back{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 15px;
+ border-radius:999px;border:1px solid var(--line);background:var(--card);
+ text-decoration:none;color:var(--soft);font:500 11px/1 Inter,sans-serif;
+ letter-spacing:.12em;text-transform:uppercase}
+header{padding:26px 0 8px}
+.kicker{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+h1{font-size:clamp(28px,7.5vw,42px);line-height:1.14;margin:0 0 14px}
+.lede{color:var(--soft);font-size:15.5px;max-width:48ch}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--goldsoft),transparent);margin:26px 0 0}
+section{margin:40px 0 0}
+h2{font-size:26px;margin:0 0 6px}
+.sub{color:var(--soft);font-size:14px;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+ padding:20px;margin-bottom:14px;box-shadow:0 1px 2px rgba(80,65,45,.05)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}}
+.sh{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;
+ background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 12px;
+ cursor:pointer;color:var(--soft);font:inherit;box-shadow:0 1px 2px rgba(80,65,45,.05);
+ transition:border-color .15s,background .15s}
+.sh .art{width:78px;height:78px;color:var(--gold);display:block}
+.sh .art svg{width:100%;height:100%;display:block}
+.sh .nm{font-size:19px;color:var(--ink);font-family:"Cormorant Garamond",Georgia,serif}
+.sh .bl{font-size:11.5px;line-height:1.45;color:var(--soft)}
+.sh.on{border-color:var(--gold);background:#fffaf1}
+.sh.on .art{color:var(--rose)}
+.sh.on .nm::after{content:" ✓";color:var(--rose);font-size:14px}
+.row{margin-bottom:18px}
+.row .lab{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--ivory);border-radius:999px;
+ padding:11px 15px;color:var(--soft);cursor:pointer;font:400 13.5px/1 inherit;min-height:44px}
+.chip.on{background:var(--gold);border-color:var(--gold);color:#fff}
+.picked{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-size:14px;color:var(--soft)}
+.picked b{color:var(--ink);font-weight:500}
+.vs{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:600px){.vs{grid-template-columns:1fr 1fr}}
+.vs .col{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:17px}
+.vs .col h3{margin:0 0 3px;font-size:20px}
+.vs .tagline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.vs ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--soft)}
+.vs li{margin-bottom:7px}
+.vs li b{color:var(--ink);font-weight:500}
+.scale{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 0;font-size:11px;color:var(--soft)}
+.scale span{border:1px solid var(--line);border-radius:6px;padding:4px 8px;background:var(--ivory)}
+.scale span.hi{background:var(--gold);color:#fff;border-color:var(--gold)}
+.note{background:#fdf6ec;border:1px solid var(--goldsoft);border-radius:12px;
+ padding:15px 17px;font-size:13.5px;color:#6b5a44;margin-top:14px}
+.note b{color:var(--ink)}
+.send-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.send{display:inline-flex;align-items:center;justify-content:center;flex:1 1 auto;
+ min-height:46px;padding:0 16px;border-radius:999px;border:1px solid var(--gold);
+ background:transparent;color:var(--gold);text-decoration:none;cursor:pointer;
+ font:500 11px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.send.primary{background:var(--gold);color:#fff}
+.caption{font-size:11.5px;color:var(--soft);margin-top:12px;text-align:center}
+footer{margin-top:40px;text-align:center;color:var(--soft);font-size:12px}
+/* field-guide redesign: an editorial reference, not a stack of callout cards */
+:root{--ivory:#f2efe7;--card:#faf8f2;--ink:#202a25;--soft:#657169;--gold:#826847;
+ --goldsoft:#c9bda7;--line:#d8d5cb;--rose:#ad695d}
+body{background:var(--ivory);font:16px/1.58 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:900px;padding:18px 34px 90px}
+.top{height:58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:0;margin-bottom:42px}
+.edition{font:10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;color:var(--soft)}
+.back{border:0;border-bottom:1px solid var(--goldsoft);border-radius:0;background:transparent;padding:0 0 7px;color:var(--ink);letter-spacing:.08em}
+header{padding:12px 9% 32px;text-align:left;border-bottom:1px solid var(--line)}
+.kicker{color:var(--rose);font-size:10px;letter-spacing:.2em}
+h1{font:clamp(52px,8vw,82px)/.93 Georgia,"Times New Roman",serif;letter-spacing:-.04em;margin:14px 0 18px}
+.lede{font:20px/1.5 Georgia,"Times New Roman",serif;color:var(--soft);max-width:42ch;margin:0}
+.guide-nav{display:flex;gap:22px;flex-wrap:wrap;margin-top:32px}
+.guide-nav a{font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+ color:var(--ink);border-bottom:1px solid var(--goldsoft);padding:8px 0}
+section{margin:58px 0 0;scroll-margin-top:24px}
+h2{font:clamp(32px,5vw,44px)/1 Georgia,"Times New Roman",serif;letter-spacing:-.03em;margin:0 0 9px}
+.sub{font:15px/1.5 Georgia,"Times New Roman",serif;color:var(--soft);margin-bottom:21px;max-width:60ch}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--line)}
+@media(min-width:680px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}}
+.sh{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr);grid-template-rows:auto 1fr;
+ align-items:start;text-align:left;gap:0 13px;padding:20px 0 18px;background:transparent;
+ border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;color:var(--soft)}
+.sh .art{grid-column:1;grid-row:1/3;width:84px;height:84px;color:var(--ink)}
+.sh .nm{grid-column:2;grid-row:1;font:24px/1.05 Georgia,"Times New Roman",serif;color:var(--ink);padding-top:5px}
+.sh .bl{grid-column:2;grid-row:2;font:12px/1.45 Georgia,"Times New Roman",serif;color:var(--soft);margin-top:9px}
+.sh.on{background:rgba(255,255,255,.3);border-color:var(--gold)}.sh.on .art{color:var(--rose)}
+.row{margin-bottom:16px}.row .lab{font-size:9px;letter-spacing:.16em;color:var(--rose)}
+.card{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;
+ padding:22px 0;margin:0;box-shadow:none}
+.chips{gap:6px}.chip{border-radius:2px;background:transparent;padding:10px 12px;font-size:12px}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.picked{border-color:var(--goldsoft);font:16px/1.5 Georgia,"Times New Roman",serif}
+.vs{grid-template-columns:1fr;gap:10px;border-top:2px solid var(--ink)}
+@media(min-width:600px){.vs{grid-template-columns:1fr 1fr;gap:26px}}
+.vs .col{border:0;border-radius:0;background:transparent;padding:20px 0}
+.vs .col+ .col{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}
+@media(min-width:600px){.vs .col+ .col{border-top:0;border-left:1px solid var(--line);padding:20px 0 0 24px}}
+.vs .col h3{font:30px/1 Georgia,"Times New Roman",serif}
+.vs .tagline{font-size:9px;letter-spacing:.13em;color:var(--rose);margin:8px 0 16px}
+.vs ul{font:14px/1.5 Georgia,"Times New Roman",serif;color:var(--soft);padding-left:16px}
+.vs li{margin-bottom:10px}.vs li b{color:var(--ink)}
+.scale{border-top:1px solid var(--line);padding-top:9px;gap:5px}
+.scale span{border:0;border-radius:0;background:transparent;border-bottom:1px solid var(--line);padding:5px 7px}
+.scale span.hi{background:transparent;color:var(--rose);border-color:var(--rose)}
+.note{background:transparent;border:0;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);
+ border-radius:0;padding:16px 0;font:17px/1.5 Georgia,"Times New Roman",serif;color:var(--ink)}
+.send{border-radius:2px}.send.primary{background:var(--ink);border-color:var(--ink)}
+.send:not(.primary){color:var(--ink);border-color:var(--goldsoft)}
+footer .back{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:600px){
+ .wrap{padding:14px 20px 70px}.top{margin-bottom:32px}.edition{font-size:8px}
+ header{padding:10px 2% 26px}h1{font-size:56px}.lede{font-size:18px}
+ .guide-nav{gap:15px;margin-top:24px}.guide-nav a{font-size:9px}
+ section{margin-top:44px}.grid{gap:0 14px}
+ .sh{grid-template-columns:62px minmax(0,1fr);gap:0 9px;padding:16px 0 14px}
+ .sh .art{width:62px;height:62px}.sh .nm{font-size:20px;padding-top:2px}.sh .bl{font-size:11px;margin-top:7px}
+ .vs{gap:13px}.vs .col+ .col{padding-left:0}.vs .col h3{font-size:26px}
+ .vs ul{font-size:12.5px;padding-left:14px}.card{padding:17px 0}
+}
+@media(max-width:370px){.sh{grid-template-columns:52px minmax(0,1fr);gap:0 7px}.sh .art{width:52px;height:52px}.sh .nm{font-size:18px}.sh .bl{font-size:10.5px}}
+</style></head><body><div class="wrap">
+
+<div class="top"><a class="back" href="index.html">&larr; The weekend plan</a><span class="edition">FIELD NOTES&nbsp; / &nbsp;THE STONE GUIDE</span></div>
+<header>
+  <div class="kicker">A field guide</div>
+  <h1>The details,<br>in plain English.</h1>
+  <p class="lede">Ten shapes. A little about stones and settings. And what the words on a grading report actually mean. Browse, tap, change your mind.</p>
+  <nav class="guide-nav" aria-label="Guide sections"><a href="#shapes">The shapes</a><a href="#origin">Lab or natural</a><a href="#four-cs">The four Cs</a></nav>
+</header>
+
+<section id="shapes">
+  <h2>Choose a silhouette</h2>
+  <div class="sub">Tap any that you like. Tap again to undo &mdash; change it as often as you want.</div>
+  <div class="grid" id="shape-grid"><button class="sh" data-shape="Round" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="50" cy="50" r="40"/><polygon points="50,28 65.6,34.4 72,50 65.6,65.6 50,72 34.4,65.6 28,50 34.4,34.4"/><path d="M72,50 87,65.3M65.6,65.6 65.3,87M50,72 34.7,87M34.4,65.6 13,65.3M28,50 13,34.7M34.4,34.4 34.7,13M50,28 65.3,13M65.6,34.4 87,34.7"/></svg></span><span class="nm">Round</span><span class="bl">The classic, and the brightest of them all — cut to throw the most light back at you.</span></button><button class="sh" data-shape="Oval" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><ellipse cx="50" cy="50" rx="29" ry="40"/><ellipse cx="50" cy="50" rx="15" ry="23"/><path d="M50,10v17M50,73v17M21,50h14M65,50h14"/></svg></span><span class="nm">Oval</span><span class="bl">Round's sparkle in a longer shape. Looks noticeably bigger than a round of the same weight.</span></button><button class="sh" data-shape="Emerald" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="28,14 72,14 86,28 86,72 72,86 28,86 14,72 14,28"/><polygon points="34,22 66,22 78,34 78,66 66,78 34,78 22,66 22,34"/><polygon points="40,30 60,30 70,40 70,60 60,70 40,70 30,60 30,40"/></svg></span><span class="nm">Emerald</span><span class="bl">Step-cut and glassy rather than sparkly. Elegant, and the most unforgiving about clarity.</span></button><button class="sh" data-shape="Cushion" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="16" y="16" width="68" height="68" rx="20"/><rect x="31" y="31" width="38" height="38" rx="12"/><path d="M50,16v15M50,69v15M16,50h15M69,50h15"/></svg></span><span class="nm">Cushion</span><span class="bl">A softened square — sparkle somewhere between a round and an emerald. Very forgiving.</span></button><button class="sh" data-shape="Pear" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M50,7C66,29 84,45 84,61A34,34 0 1 1 16,61C16,45 34,29 50,7Z"/><path d="M50,34c7,11 15,19 15,27a15,15 0 1 1-30,0c0-8 8-16 15-27Z"/></svg></span><span class="nm">Pear</span><span class="bl">Teardrop, with one pointed end. Pointing towards the fingertip, it lengthens the finger.</span></button><button class="sh" data-shape="Radiant" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="28,14 72,14 86,28 86,72 72,86 28,86 14,72 14,28"/><polygon points="36,26 64,26 74,36 74,64 64,74 36,74 26,64 26,36"/><path d="M50,26v10M74,50h-10M50,74v-10M26,50h10"/></svg></span><span class="nm">Radiant</span><span class="bl">Cut corners like an emerald, but brilliant-cut inside — so it sparkles like a round.</span></button><button class="sh" data-shape="Princess" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="15" y="15" width="70" height="70"/><rect x="32" y="32" width="36" height="36"/><path d="M15,15 32,32M85,15 68,32M85,85 68,68M15,85 32,68"/></svg></span><span class="nm">Princess</span><span class="bl">A sharp square with brilliant-cut sparkle. Modern, and usually the best value per carat.</span></button><button class="sh" data-shape="Marquise" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M50,7C70,27 84,42 84,50C84,58 70,73 50,93C30,73 16,58 16,50C16,42 30,27 50,7Z"/><path d="M50,25c11,14 21,21 21,25c0,4-10,11-21,25c-11-14-21-21-21-25c0-4 10-11 21-25Z"/></svg></span><span class="nm">Marquise</span><span class="bl">Pointed at both ends, so it covers the most finger of any shape for its weight.</span></button><button class="sh" data-shape="Asscher" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="28,14 72,14 86,28 86,72 72,86 28,86 14,72 14,28"/><polygon points="34,22 66,22 78,34 78,66 66,78 34,78 22,66 22,34"/><polygon points="40,30 60,30 70,40 70,60 60,70 40,70 30,60 30,40"/><rect x="42" y="42" width="16" height="16"/></svg></span><span class="nm">Asscher</span><span class="bl">A square emerald cut. Calm and architectural — the one people either love or don't.</span></button><button class="sh" data-shape="Heart" type="button"><span class="art"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M50,87C24,67 12,53 12,39C12,27 22,19 32,19C40,19 47,24 50,31C53,24 60,19 68,19C78,19 88,27 88,39C88,53 76,67 50,87Z"/><path d="M50,42c-6-9-14-13-20-10c-7,3-8,13-2,21c6,9 16,17 22,22c6-5 16-13 22-22c6-8 5-18-2-21c-6-3-14,1-20,10Z"/></svg></span><span class="nm">Heart</span><span class="bl">Sentimental and impossible to miss. The hardest of all to cut well, so quality varies a lot.</span></button></div>
+</section>
+
+<section>
+  <h2>What you're thinking</h2>
+  <div class="sub">Only if you want to. It all saves on this phone.</div>
+  <div class="card">
+    <div class="row"><div class="lab">Metal</div><div class="chips" id="metals"></div></div>
+    <div class="row"><div class="lab">Setting style</div><div class="chips" id="styles"></div></div>
+    <div class="row"><div class="lab">Where the stone comes from</div><div class="chips" id="stones"></div></div>
+    <div class="row" style="margin-bottom:0"><div class="lab">What matters most</div><div class="chips" id="priorities"></div></div>
+    <div class="picked" id="picked"></div>
+  </div>
+</section>
+
+<section id="origin">
+  <h2>Lab-grown or natural</h2>
+  <div class="sub">They are the same stone. The only difference is where it came from.</div>
+  <div class="card">
+    <p style="margin-top:0">A lab-grown diamond <b>is a diamond</b> &mdash; same carbon, same hardness, same sparkle. It is not a simulant; cubic zirconia and moissanite are the lookalikes, and those are different materials entirely. Only a laboratory can tell a lab-grown stone from a mined one.</p>
+    <p style="margin-bottom:0">The real difference is cost, and what happens afterwards.</p>
+  </div>
+  <div class="vs">
+    <div class="col">
+      <h3>Lab-grown</h3>
+      <div class="tagline">Grown in weeks</div>
+      <ul>
+        <li><b>Much cheaper</b> &mdash; roughly 10&ndash;20% of a natural stone at the same colour and clarity, so about 80&ndash;90% less.</li>
+        <li><b>More stone for the money</b> &mdash; you get a visibly larger, cleaner diamond for the same spend.</li>
+        <li><b>Keeps getting cheaper</b> &mdash; prices have fallen sharply year on year as production scales up.</li>
+        <li><b>Resale is effectively nil.</b> This is the honest catch.</li>
+        <li>Graded by IGI or GIA, and often graded a little more generously.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Natural</h3>
+      <div class="tagline">Formed over billions of years</div>
+      <ul>
+        <li><b>Substantially more expensive</b> &mdash; the same specs can run five to ten times the price.</li>
+        <li><b>Holds some value</b> &mdash; a natural stone typically resells for roughly 20&ndash;40% of retail.</li>
+        <li><b>Stable pricing</b> &mdash; it has not collapsed the way lab-grown has.</li>
+        <li><b>Rarity is the whole point</b> for some people; for others it simply is not.</li>
+        <li>Usually GIA-graded, which is the stricter of the two labs.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>In plain terms:</b> lab-grown buys a bigger, better-looking stone today; natural holds more of its value later. Neither is the wrong answer &mdash; it is worth deciding which of those two things you actually care about.</div>
+</section>
+
+<section id="four-cs">
+  <h2>The four things that decide a diamond</h2>
+  <div class="sub">Everyone calls them the four Cs. They are not equally important.</div>
+
+  <div class="card">
+    <h3 style="margin:0 0 4px;font-size:21px">1. Cut &mdash; by far the most important</h3>
+    <p style="margin:8px 0 0;color:var(--soft)">How well the angles inside the stone throw light back at you. A beautifully cut smaller diamond looks better than a badly cut bigger one, every time. It is also the only thing on this list that comes down to the cutter's skill rather than the raw stone &mdash; which is why it is the one worth being fussy about.</p>
+    <div class="scale"><span class="hi">Excellent</span><span>Very good</span><span>Good</span><span>Fair</span><span>Poor</span></div>
+    <p style="margin:12px 0 0;color:var(--soft);font-size:13.5px">Round diamonds get an official cut grade. Other shapes do not &mdash; for those you judge it by eye, which is exactly what trying them on is for.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 4px;font-size:21px">2. Colour</h3>
+    <p style="margin:8px 0 0;color:var(--soft)">Runs from D (completely colourless) down to Z (visibly yellow). Most people cannot tell a G from a D once the stone is set and on a hand &mdash; and in yellow or rose gold you can go further down the scale without it showing at all.</p>
+    <div class="scale"><span class="hi">D&ndash;F</span><span class="hi">G&ndash;H</span><span>I&ndash;J</span><span>K&ndash;M</span><span>N&ndash;Z</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 4px;font-size:21px">3. Clarity</h3>
+    <p style="margin:8px 0 0;color:var(--soft)">How many internal marks the stone has, from Flawless down to I3 (visible to the naked eye). The sweet spot sits around VS2&ndash;SI1: clean to the eye, and far less expensive than the near-perfect grades almost nobody can see the difference from.</p>
+    <div class="scale"><span>FL</span><span>VVS</span><span class="hi">VS</span><span class="hi">SI</span><span>I</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 4px;font-size:21px">4. Carat</h3>
+    <p style="margin:8px 0 0;color:var(--soft)">The weight, not the size. Two stones of the same weight can look different sizes depending on how deeply they are cut. Prices also jump at round numbers, so a 0.95ct stone can cost noticeably less than a 1.00ct one and look identical on a hand.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 4px;font-size:21px">Two more worth knowing</h3>
+    <p style="margin:8px 0 0;color:var(--soft)"><b>Fluorescence</b> &mdash; a faint glow under UV light. Usually harmless, but strong fluorescence can make a stone look slightly milky in daylight.</p>
+    <p style="margin:8px 0 0;color:var(--soft)"><b>The report</b> &mdash; every stone should come with a GIA or IGI certificate, and the number on it can be checked online. Worth asking for, every time.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Nothing here is a decision</h2>
+  <div class="card">
+    <p style="margin-top:0">This weekend is only about finding out what you like. You can skip anything, love anything, and change your mind as many times as you want &mdash; nothing is ordered, booked or bought.</p>
+    <p style="margin-bottom:0">If you want to, send what you have picked to Nico so he has it.</p>
+    <div class="send-row">
+      <a class="send primary" id="mail-nico" role="button">Email my picks</a>
+      <a class="send" id="sms-nico" role="button">Text my picks</a>
+    </div>
+    <div class="caption" id="cap-contact"></div>
+  </div>
+</section>
+
+<footer><a class="back" href="index.html">&larr; Back to the plan</a></footer>
+</div>
+
+<script>
+const D = {"nico": {"phone": "+17605668089", "email": "Nico.masseroli@gmail.com"}, "shapes": ["Round", "Oval", "Emerald", "Cushion", "Pear", "Radiant", "Princess", "Marquise", "Asscher", "Heart"], "metals": ["Yellow gold", "White gold", "Platinum", "Rose gold"], "styles": ["Solitaire", "Halo", "Three-stone", "Bezel", "Vintage"], "stones": ["Diamond", "Lab diamond", "Sapphire", "Open to anything"], "priorities": ["The biggest look", "The most sparkle", "The best value", "Not sure yet"]};
+const KEY = 'rw-state-v3';
+
+// One storage key shared with the plan page, so choices made here show up in the
+// chips over there, and the other way round.
+function blank(){ return {skip:{}, love:{}, notes:{}, style:{}, priority:'', v:3}; }
+let state = (function(){
+  try{ return Object.assign(blank(), JSON.parse(localStorage.getItem(KEY)||'{}')); }
+  catch(e){ return blank(); }
+})();
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => (
+  {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function render(){
+  document.querySelectorAll('[data-shape]').forEach(b=>{
+    const k = b.dataset.shape;
+    b.classList.toggle('on', !!state.style[k]);
+    b.setAttribute('aria-pressed', state.style[k] ? 'true' : 'false');
+    b.onclick = ()=>{
+      if(state.style[k]) delete state.style[k]; else state.style[k]=1;
+      save(); render();
+    };
+  });
+  [['metals',D.metals],['styles',D.styles],['stones',D.stones]].forEach(pair=>{
+    const id = pair[0], items = pair[1];
+    document.getElementById(id).innerHTML = items.map(v=>
+      '<button class="chip'+(state.style[v]?' on':'')+'" data-chip="'+esc(v)+'" type="button">'+esc(v)+'</button>'
+    ).join('');
+  });
+  document.getElementById('priorities').innerHTML = D.priorities.map(v=>
+    '<button class="chip'+(state.priority===v?' on':'')+'" data-pri="'+esc(v)+'" type="button">'+esc(v)+'</button>'
+  ).join('');
+
+  const shapes = D.shapes.filter(n=>state.style[n]);
+  const metals = D.metals.filter(n=>state.style[n]);
+  const styles = D.styles.filter(n=>state.style[n]);
+  const stones = D.stones.filter(n=>state.style[n]);
+  const bits = [];
+  if(shapes.length) bits.push('<b>Shapes:</b> '+shapes.join(', '));
+  if(metals.length) bits.push('<b>Metal:</b> '+metals.join(', '));
+  if(styles.length) bits.push('<b>Style:</b> '+styles.join(', '));
+  if(stones.length) bits.push('<b>Stone:</b> '+stones.join(', '));
+  if(state.priority) bits.push('<b>Matters most:</b> '+state.priority);
+  document.getElementById('picked').innerHTML = bits.length
+    ? 'You have picked &mdash; '+bits.join(' &nbsp;&middot;&nbsp; ')
+    : 'Nothing picked yet. Tap anything above, whenever you like.';
+
+  document.querySelectorAll('[data-chip]').forEach(b=>b.onclick=()=>{
+    const k=b.dataset.chip;
+    if(state.style[k]) delete state.style[k]; else state.style[k]=1;
+    save(); render();
+  });
+  document.querySelectorAll('[data-pri]').forEach(b=>b.onclick=()=>{
+    state.priority = (state.priority===b.dataset.pri) ? '' : b.dataset.pri;
+    save(); render();
+  });
+  wireSends();
+}
+
+function summary(){
+  const shapes = D.shapes.filter(n=>state.style[n]);
+  const metals = D.metals.filter(n=>state.style[n]);
+  const styles = D.styles.filter(n=>state.style[n]);
+  const stones = D.stones.filter(n=>state.style[n]);
+  const out = ['What I like so far',''];
+  if(shapes.length) out.push('Shapes: '+shapes.join(', '));
+  if(metals.length) out.push('Metal: '+metals.join(', '));
+  if(styles.length) out.push('Style: '+styles.join(', '));
+  if(stones.length) out.push('Stone: '+stones.join(', '));
+  if(state.priority) out.push('Matters most: '+state.priority);
+  if(out.length===2) out.push('(Nothing picked yet - still working it out.)');
+  return out.join('\n');
+}
+
+function wireSends(){
+  const enc = encodeURIComponent(summary());
+  document.getElementById('mail-nico').href =
+    'mailto:'+D.nico.email+'?subject='+encodeURIComponent('What I like so far')+'&body='+enc;
+  document.getElementById('sms-nico').href = 'sms:'+D.nico.phone+'?&body='+enc;
+  document.getElementById('cap-contact').textContent = 'Goes straight to Nico \u2014 nothing is sent unless you tap.';
+}
+
+render();
+window.RG = { state: function(){ return state; }, render: render, summary: summary };
+</script></body></html>
