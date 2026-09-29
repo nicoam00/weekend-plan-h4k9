@@ -382,6 +382,38 @@ body.locked{overflow:hidden}
 
 .cover-art .arch-frame::after{z-index:1}
 
+/* guide feature */
+.guide-feature{padding:68px var(--gutter) 64px;border-top:1px solid var(--hair);background:var(--paper-3,#EDE8E0)}
+.guide-feature .h2{margin:16px 0 22px}
+.gf-lede{font:italic 400 20px/1.42 var(--serif);color:var(--ink-2);margin:0 0 30px;max-width:38ch}
+.gf-toc{list-style:none;margin:0 0 34px;padding:0}
+.gf-cap{margin:10px 0 26px;font:italic 400 15px/1.4 var(--serif);color:var(--mute)}
+.gf-toc li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:baseline;padding:14px 0;border-top:1px solid var(--hair);font:400 15px/1.5 var(--sans);color:var(--ink-2)}
+.gf-toc li:last-child{border-bottom:1px solid var(--hair)}
+.gf-toc .n{font:italic 400 20px/1 var(--serif);color:var(--garnet)}
+.gf-toc b{font-weight:500;color:var(--ink)}
+.gf-cta{display:flex;width:100%;justify-content:center;gap:12px;min-height:54px}
+.gf-status{margin:14px 0 0;font:500 10px/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--garnet);min-height:1em}
+.gf-plates{display:grid;grid-template-columns:repeat(5,1fr);margin:6px 0 0;border:1px solid var(--hair);color:var(--ink);text-decoration:none}
+.gf-plate{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 2px 12px;border-left:1px solid var(--hair)}
+.gf-plate:first-child{border-left:0}
+.gf-plate svg{width:100%;max-width:46px;height:auto}
+.gf-plate span{font:500 8.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.gf-plate.on span{color:var(--garnet)}
+.how li a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--garnet)}
+.style .link-line{margin:-18px 0 26px}
+@media (min-width:760px){
+  .guide-feature{padding:110px var(--gutter)}
+  .gf-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 72px;align-items:start}
+  .gf-copy > *{grid-column:1}
+  .gf-copy .gf-art{grid-column:2;grid-row:1 / span 6;align-self:center}
+  .gf-cap{margin-bottom:0}
+  .gf-lede{max-width:none}
+  .gf-cta{width:auto;display:inline-flex;padding:0 34px}
+  .gf-plate{padding:34px 6px 22px}
+  .gf-plate svg{max-width:80px}
+}
+
 </style></head>
 <body>
 <a class="skip-link" href="#days">Skip to the itinerary</a>
@@ -405,7 +437,7 @@ body.locked{overflow:hidden}
     <nav class="cover-index" aria-label="Jump to a day" data-reveal>
       <a class="link-line" href="#day-sat"><span>Saturday</span><i aria-hidden="true">&rarr;</i></a>
       <a class="link-line" href="#day-sun"><span>Sunday</span><i aria-hidden="true">&rarr;</i></a>
-      <a class="link-line" href="guide.html"><span>Before we go, a little about diamonds</span><i aria-hidden="true">&nearr;</i></a>
+      <a class="link-line" href="#guide-intro"><span>Start with the guide</span><i aria-hidden="true">&darr;</i></a>
     </nav>
   </div>
   <figure class="cover-art" data-reveal>
@@ -416,6 +448,24 @@ body.locked{overflow:hidden}
   </figure>
 </section>
 
+<section class="guide-feature" id="guide-intro" aria-labelledby="gf-title">
+  <div class="gf-copy">
+    <p class="eyebrow" data-reveal>Read this first · <b>five minutes</b></p>
+    <h2 class="h2" id="gf-title" data-reveal>Before we go,<br><em>the guide.</em></h2>
+    <p class="gf-lede" data-reveal>You don't need to know anything about rings to enjoy this weekend. But if you'd like the words the jewellers will use to make sense, there's a short, plain-English guide — and anything you tap there is remembered here.</p>
+    <ol class="gf-toc" data-reveal>
+      <li><span class="n">I</span><span><b>The shapes</b> — ten silhouettes, drawn. Tap the ones you like.</span></li>
+      <li><span class="n">II</span><span><b>What you're thinking</b> — metal, setting, what matters most.</span></li>
+      <li><span class="n">III</span><span><b>Lab or natural</b> — the honest difference.</span></li>
+      <li><span class="n">IV</span><span><b>The four Cs</b> — what a grading report actually says.</span></li>
+    </ol>
+    <div class="gf-art" data-reveal><a class="gf-plates" href="guide.html#shapes" tabindex="-1" aria-hidden="true"><span class="gf-plate" data-plate="Round"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="50" cy="50" r="40"/><polygon points="50,28 65.6,34.4 72,50 65.6,65.6 50,72 34.4,65.6 28,50 34.4,34.4"/><path d="M72,50 87,65.3M65.6,65.6 65.3,87M50,72 34.7,87M34.4,65.6 13,65.3M28,50 13,34.7M34.4,34.4 34.7,13M50,28 65.3,13M65.6,34.4 87,34.7"/></svg><span>Round</span></span><span class="gf-plate" data-plate="Oval"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><ellipse cx="50" cy="50" rx="29" ry="40"/><ellipse cx="50" cy="50" rx="15" ry="23"/><path d="M50,10v17M50,73v17M21,50h14M65,50h14"/></svg><span>Oval</span></span><span class="gf-plate" data-plate="Emerald"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="28,14 72,14 86,28 86,72 72,86 28,86 14,72 14,28"/><polygon points="34,22 66,22 78,34 78,66 66,78 34,78 22,66 22,34"/><polygon points="40,30 60,30 70,40 70,60 60,70 40,70 30,60 30,40"/></svg><span>Emerald</span></span><span class="gf-plate" data-plate="Pear"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M50,7C66,29 84,45 84,61A34,34 0 1 1 16,61C16,45 34,29 50,7Z"/><path d="M50,34c7,11 15,19 15,27a15,15 0 1 1-30,0c0-8 8-16 15-27Z"/></svg><span>Pear</span></span><span class="gf-plate" data-plate="Marquise"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M50,7C70,27 84,42 84,50C84,58 70,73 50,93C30,73 16,58 16,50C16,42 30,27 50,7Z"/><path d="M50,25c11,14 21,21 21,25c0,4-10,11-21,25c-11-14-21-21-21-25c0-4 10-11 21-25Z"/></svg><span>Marquise</span></span></a>
+    <p class="gf-cap">Five of the ten shapes, drawn to scale in the guide.</p></div>
+    <a class="btn solid gf-cta" href="guide.html" data-reveal>Open the guide <span aria-hidden="true">&rarr;</span></a>
+    <p class="gf-status" id="gf-status" aria-live="polite"></p>
+  </div>
+</section>
+
 <section class="how" aria-labelledby="how-title">
   <div>
     <p class="eyebrow">Before you start</p>
@@ -423,6 +473,7 @@ body.locked{overflow:hidden}
   </div>
   <div>
     <ol>
+      <li><span>New to rings? <b>Read the guide</b> above first — five minutes, and the shapes you tap there show up below.</span></li>
       <li><span>Each stop has <b>website</b>, <b>directions</b> and <b>add to calendar</b> — tap whichever you need.</span></li>
       <li><span><b>Skip</b> anything you'd rather not go to; the day rearranges itself. <b>Love it</b> quietly marks a favourite.</span></li>
       <li><span><b>Take a photo</b> of anything you try on and leave a note. Try-on photos stay on this phone.</span></li>
@@ -439,6 +490,7 @@ body.locked{overflow:hidden}
     <p class="eyebrow">A private wish list</p>
     <h2 class="h2" id="style-title">What catches <em>your eye</em></h2>
     <p class="sub">Tap anything that appeals — it helps narrow the next trip, and nothing here is a commitment.</p>
+    <a class="link-line" href="guide.html#shapes"><span>Not sure what these mean? See them drawn</span><i aria-hidden="true">&rarr;</i></a>
   </div>
   <div class="chips" id="chips"></div>
 </section>
@@ -495,6 +547,7 @@ body.locked{overflow:hidden}
 
 <div class="dock bar" id="dock">
   <div class="count" id="count" aria-live="polite">—</div>
+  <a class="btn quiet" id="bar-guide" href="guide.html">Guide</a>
   <button class="btn quiet" id="bar-shortlist" type="button">Shortlist</button>
   <a class="btn solid" href="#send">Send</a>
 </div>
@@ -1225,6 +1278,21 @@ function notePhotosUnavailable(){
   const el = document.getElementById('photo-warning');
   if(el) el.style.display = 'block';
 }
+
+(function guideStatus(){
+  const SH = ['Round','Oval','Emerald','Cushion','Pear','Radiant','Princess','Marquise','Asscher','Heart'];
+  function paint(){
+    let st={}; try{ st = (JSON.parse(localStorage.getItem('rw-state-v3')||'{}').style)||{}; }catch(e){}
+    const on = SH.filter(s=>st[s]);
+    const el = document.getElementById('gf-status');
+    if(el) el.textContent = on.length ? 'Marked in the guide: ' + on.join(', ') : '';
+    document.querySelectorAll('.gf-plate').forEach(p=>p.classList.toggle('on', !!st[p.dataset.plate]));
+  }
+  paint();
+  window.addEventListener('pageshow', paint);
+  window.addEventListener('storage', paint);
+  document.addEventListener('click', e=>{ if(e.target.closest('[data-chip]')) setTimeout(paint,0); });
+})();
 
 (function borrowCover(){
   const img = document.getElementById('cover-photo');
